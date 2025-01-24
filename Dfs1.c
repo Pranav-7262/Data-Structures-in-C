@@ -43,6 +43,7 @@ void printadjmat(int adjmat[][nov]) {
     }
 }
 void dfs(int adjmat[][nov],int visited[],int s) {
+    int i;
     push(s);
     while(top!=-1)
     {
@@ -52,7 +53,7 @@ void dfs(int adjmat[][nov],int visited[],int s) {
             visited[val]=1;
 
         }
-        for(int i=nov-1; i>=0; i--) {
+        for(i=nov-1; i>=0; i--) {
 
             if(adjmat[val][i]==1 && visited[i]==0) {
                 push(i);
@@ -63,12 +64,13 @@ void dfs(int adjmat[][nov],int visited[],int s) {
     }
 }
 int main() {
+    int i;
     int edges[noe][2] = {{0,1},{0,2},{1,3},{2,3}};
     int adjmat[nov][nov];
     createadjmat(adjmat,edges);
     printadjmat(adjmat);
     int visited[nov];
-    for(int i=0; i<nov; i++) {
+    for(i=0; i<nov; i++) {
         visited[i]=0;
     }
     printf("\n After the DFS traversing \n: ");
